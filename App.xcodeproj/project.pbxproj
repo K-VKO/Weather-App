@@ -9,23 +9,75 @@
 /* Begin PBXBuildFile section */
 		FC0E552027D4D2AF00DA49FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E551F27D4D2AF00DA49FC /* AppDelegate.swift */; };
 		FC0E552227D4D2AF00DA49FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E552127D4D2AF00DA49FC /* SceneDelegate.swift */; };
-		FC0E552427D4D2AF00DA49FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E552327D4D2AF00DA49FC /* ViewController.swift */; };
-		FC0E552727D4D2AF00DA49FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC0E552527D4D2AF00DA49FC /* Main.storyboard */; };
 		FC0E552A27D4D2AF00DA49FC /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC0E552827D4D2AF00DA49FC /* App.xcdatamodeld */; };
 		FC0E552C27D4D2B000DA49FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC0E552B27D4D2B000DA49FC /* Assets.xcassets */; };
 		FC0E552F27D4D2B000DA49FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC0E552D27D4D2B000DA49FC /* LaunchScreen.storyboard */; };
+		FCC99A1527DA1C3500B4EA6E /* TodayInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC99A1327DA1C3500B4EA6E /* TodayInfoCell.swift */; };
+		FCC99A1627DA1C3500B4EA6E /* TodayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC99A1427DA1C3500B4EA6E /* TodayInfoCell.xib */; };
+		FCC99A1927DA1E1800B4EA6E /* UIView + LoadFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC99A1827DA1E1800B4EA6E /* UIView + LoadFromNib.swift */; };
+		FCC99A1B27DA242700B4EA6E /* UITableView + Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC99A1A27DA242700B4EA6E /* UITableView + Cell.swift */; };
+		FCC99A1D27DA269700B4EA6E /* UICollectionView + Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC99A1C27DA269700B4EA6E /* UICollectionView + Cell.swift */; };
+		FCC99A1F27DA330A00B4EA6E /* UIView + RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC99A1E27DA330A00B4EA6E /* UIView + RoundCorners.swift */; };
+		FCC9B0E927D5373800EAA35C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC9B0E727D5373800EAA35C /* MainVC.swift */; };
+		FCC9B0EA27D5373800EAA35C /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0E827D5373800EAA35C /* MainVC.xib */; };
+		FCC9B0EE27D537FE00EAA35C /* MainVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC9B0EC27D537FE00EAA35C /* MainVCCell.swift */; };
+		FCC9B0EF27D537FE00EAA35C /* MainVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0ED27D537FE00EAA35C /* MainVCCell.xib */; };
+		FCC9B10427D53AB300EAA35C /* Poppins-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F227D53AB200EAA35C /* Poppins-BoldItalic.otf */; };
+		FCC9B10527D53AB300EAA35C /* Poppins-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F327D53AB200EAA35C /* Poppins-Thin.otf */; };
+		FCC9B10627D53AB300EAA35C /* Poppins-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F427D53AB300EAA35C /* Poppins-ThinItalic.otf */; };
+		FCC9B10727D53AB300EAA35C /* Poppins-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F527D53AB300EAA35C /* Poppins-LightItalic.otf */; };
+		FCC9B10827D53AB300EAA35C /* Poppins-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F627D53AB300EAA35C /* Poppins-MediumItalic.otf */; };
+		FCC9B10927D53AB300EAA35C /* Poppins-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F727D53AB300EAA35C /* Poppins-Italic.otf */; };
+		FCC9B10A27D53AB300EAA35C /* Poppins-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F827D53AB300EAA35C /* Poppins-ExtraLightItalic.otf */; };
+		FCC9B10B27D53AB300EAA35C /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0F927D53AB300EAA35C /* Poppins-SemiBold.otf */; };
+		FCC9B10C27D53AB300EAA35C /* Poppins-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FA27D53AB300EAA35C /* Poppins-ExtraBoldItalic.otf */; };
+		FCC9B10D27D53AB300EAA35C /* Poppins-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FB27D53AB300EAA35C /* Poppins-Black.otf */; };
+		FCC9B10E27D53AB300EAA35C /* Poppins-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FC27D53AB300EAA35C /* Poppins-Light.otf */; };
+		FCC9B10F27D53AB300EAA35C /* Poppins-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FD27D53AB300EAA35C /* Poppins-BlackItalic.otf */; };
+		FCC9B11027D53AB300EAA35C /* Poppins-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FE27D53AB300EAA35C /* Poppins-ExtraLight.otf */; };
+		FCC9B11127D53AB300EAA35C /* Poppins-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B0FF27D53AB300EAA35C /* Poppins-Regular.otf */; };
+		FCC9B11227D53AB300EAA35C /* Poppins-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10027D53AB300EAA35C /* Poppins-Medium.otf */; };
+		FCC9B11327D53AB300EAA35C /* Poppins-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10127D53AB300EAA35C /* Poppins-ExtraBold.otf */; };
+		FCC9B11427D53AB300EAA35C /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10227D53AB300EAA35C /* Poppins-Bold.otf */; };
+		FCC9B11527D53AB300EAA35C /* Poppins-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10327D53AB300EAA35C /* Poppins-SemiBoldItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC0E551C27D4D2AF00DA49FC /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0E551F27D4D2AF00DA49FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC0E552127D4D2AF00DA49FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC0E552327D4D2AF00DA49FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC0E552627D4D2AF00DA49FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC0E552927D4D2AF00DA49FC /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
 		FC0E552B27D4D2B000DA49FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC0E552E27D4D2B000DA49FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC0E553027D4D2B000DA49FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC99A1327DA1C3500B4EA6E /* TodayInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInfoCell.swift; sourceTree = "<group>"; };
+		FCC99A1427DA1C3500B4EA6E /* TodayInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayInfoCell.xib; sourceTree = "<group>"; };
+		FCC99A1827DA1E1800B4EA6E /* UIView + LoadFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + LoadFromNib.swift"; sourceTree = "<group>"; };
+		FCC99A1A27DA242700B4EA6E /* UITableView + Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Cell.swift"; sourceTree = "<group>"; };
+		FCC99A1C27DA269700B4EA6E /* UICollectionView + Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Cell.swift"; sourceTree = "<group>"; };
+		FCC99A1E27DA330A00B4EA6E /* UIView + RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + RoundCorners.swift"; sourceTree = "<group>"; };
+		FCC9B0E727D5373800EAA35C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		FCC9B0E827D5373800EAA35C /* MainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVC.xib; sourceTree = "<group>"; };
+		FCC9B0EC27D537FE00EAA35C /* MainVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCCell.swift; sourceTree = "<group>"; };
+		FCC9B0ED27D537FE00EAA35C /* MainVCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVCCell.xib; sourceTree = "<group>"; };
+		FCC9B0F227D53AB200EAA35C /* Poppins-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0F327D53AB200EAA35C /* Poppins-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.otf"; sourceTree = "<group>"; };
+		FCC9B0F427D53AB300EAA35C /* Poppins-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0F527D53AB300EAA35C /* Poppins-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0F627D53AB300EAA35C /* Poppins-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0F727D53AB300EAA35C /* Poppins-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.otf"; sourceTree = "<group>"; };
+		FCC9B0F827D53AB300EAA35C /* Poppins-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0F927D53AB300EAA35C /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.otf"; sourceTree = "<group>"; };
+		FCC9B0FA27D53AB300EAA35C /* Poppins-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0FB27D53AB300EAA35C /* Poppins-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.otf"; sourceTree = "<group>"; };
+		FCC9B0FC27D53AB300EAA35C /* Poppins-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.otf"; sourceTree = "<group>"; };
+		FCC9B0FD27D53AB300EAA35C /* Poppins-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.otf"; sourceTree = "<group>"; };
+		FCC9B0FE27D53AB300EAA35C /* Poppins-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.otf"; sourceTree = "<group>"; };
+		FCC9B0FF27D53AB300EAA35C /* Poppins-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.otf"; sourceTree = "<group>"; };
+		FCC9B10027D53AB300EAA35C /* Poppins-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.otf"; sourceTree = "<group>"; };
+		FCC9B10127D53AB300EAA35C /* Poppins-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.otf"; sourceTree = "<group>"; };
+		FCC9B10227D53AB300EAA35C /* Poppins-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.otf"; sourceTree = "<group>"; };
+		FCC9B10327D53AB300EAA35C /* Poppins-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +110,122 @@
 		FC0E551E27D4D2AF00DA49FC /* App */ = {
 			isa = PBXGroup;
 			children = (
-				FC0E551F27D4D2AF00DA49FC /* AppDelegate.swift */,
-				FC0E552127D4D2AF00DA49FC /* SceneDelegate.swift */,
-				FC0E552327D4D2AF00DA49FC /* ViewController.swift */,
-				FC0E552527D4D2AF00DA49FC /* Main.storyboard */,
-				FC0E552B27D4D2B000DA49FC /* Assets.xcassets */,
+				FCC99A1727DA1DD700B4EA6E /* Helpers */,
+				FCC9B0F027D53A9800EAA35C /* Media */,
+				FCC9B0E527D536ED00EAA35C /* App */,
+				FCC9B0E427D536D500EAA35C /* CoreData */,
+				FCC9B0E327D536CD00EAA35C /* VC's */,
 				FC0E552D27D4D2B000DA49FC /* LaunchScreen.storyboard */,
+				FC0E552B27D4D2B000DA49FC /* Assets.xcassets */,
 				FC0E553027D4D2B000DA49FC /* Info.plist */,
-				FC0E552827D4D2AF00DA49FC /* App.xcdatamodeld */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FCC99A1127DA1BA000B4EA6E /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCC9B0EB27D537E400EAA35C /* Cell */,
+				FCC9B0E727D5373800EAA35C /* MainVC.swift */,
+				FCC9B0E827D5373800EAA35C /* MainVC.xib */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		FCC99A1227DA1BAD00B4EA6E /* TodayInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCC99A1327DA1C3500B4EA6E /* TodayInfoCell.swift */,
+				FCC99A1427DA1C3500B4EA6E /* TodayInfoCell.xib */,
+			);
+			path = TodayInfoCell;
+			sourceTree = "<group>";
+		};
+		FCC99A1727DA1DD700B4EA6E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FCC99A1827DA1E1800B4EA6E /* UIView + LoadFromNib.swift */,
+				FCC99A1E27DA330A00B4EA6E /* UIView + RoundCorners.swift */,
+				FCC99A1A27DA242700B4EA6E /* UITableView + Cell.swift */,
+				FCC99A1C27DA269700B4EA6E /* UICollectionView + Cell.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FCC9B0E327D536CD00EAA35C /* VC's */ = {
+			isa = PBXGroup;
+			children = (
+				FCC9B0E627D5370B00EAA35C /* MainVC */,
+			);
+			path = "VC's";
+			sourceTree = "<group>";
+		};
+		FCC9B0E427D536D500EAA35C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FC0E552827D4D2AF00DA49FC /* App.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FCC9B0E527D536ED00EAA35C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FC0E551F27D4D2AF00DA49FC /* AppDelegate.swift */,
+				FC0E552127D4D2AF00DA49FC /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FCC9B0E627D5370B00EAA35C /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCC99A1227DA1BAD00B4EA6E /* TodayInfoCell */,
+				FCC99A1127DA1BA000B4EA6E /* MainVC */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		FCC9B0EB27D537E400EAA35C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FCC9B0EC27D537FE00EAA35C /* MainVCCell.swift */,
+				FCC9B0ED27D537FE00EAA35C /* MainVCCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FCC9B0F027D53A9800EAA35C /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				FCC9B0F127D53A9D00EAA35C /* Fonts */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		FCC9B0F127D53A9D00EAA35C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FCC9B0FB27D53AB300EAA35C /* Poppins-Black.otf */,
+				FCC9B0FD27D53AB300EAA35C /* Poppins-BlackItalic.otf */,
+				FCC9B10227D53AB300EAA35C /* Poppins-Bold.otf */,
+				FCC9B0F227D53AB200EAA35C /* Poppins-BoldItalic.otf */,
+				FCC9B10127D53AB300EAA35C /* Poppins-ExtraBold.otf */,
+				FCC9B0FA27D53AB300EAA35C /* Poppins-ExtraBoldItalic.otf */,
+				FCC9B0FE27D53AB300EAA35C /* Poppins-ExtraLight.otf */,
+				FCC9B0F827D53AB300EAA35C /* Poppins-ExtraLightItalic.otf */,
+				FCC9B0F727D53AB300EAA35C /* Poppins-Italic.otf */,
+				FCC9B0FC27D53AB300EAA35C /* Poppins-Light.otf */,
+				FCC9B0F527D53AB300EAA35C /* Poppins-LightItalic.otf */,
+				FCC9B10027D53AB300EAA35C /* Poppins-Medium.otf */,
+				FCC9B0F627D53AB300EAA35C /* Poppins-MediumItalic.otf */,
+				FCC9B0FF27D53AB300EAA35C /* Poppins-Regular.otf */,
+				FCC9B0F927D53AB300EAA35C /* Poppins-SemiBold.otf */,
+				FCC9B10327D53AB300EAA35C /* Poppins-SemiBoldItalic.otf */,
+				FCC9B0F327D53AB200EAA35C /* Poppins-Thin.otf */,
+				FCC9B0F427D53AB300EAA35C /* Poppins-ThinItalic.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +286,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC9B10827D53AB300EAA35C /* Poppins-MediumItalic.otf in Resources */,
+				FCC9B10E27D53AB300EAA35C /* Poppins-Light.otf in Resources */,
+				FCC9B11227D53AB300EAA35C /* Poppins-Medium.otf in Resources */,
+				FCC9B10D27D53AB300EAA35C /* Poppins-Black.otf in Resources */,
+				FCC9B0EA27D5373800EAA35C /* MainVC.xib in Resources */,
+				FCC9B10627D53AB300EAA35C /* Poppins-ThinItalic.otf in Resources */,
+				FCC9B10C27D53AB300EAA35C /* Poppins-ExtraBoldItalic.otf in Resources */,
+				FCC9B11127D53AB300EAA35C /* Poppins-Regular.otf in Resources */,
+				FCC9B10927D53AB300EAA35C /* Poppins-Italic.otf in Resources */,
+				FCC9B10F27D53AB300EAA35C /* Poppins-BlackItalic.otf in Resources */,
+				FCC9B10727D53AB300EAA35C /* Poppins-LightItalic.otf in Resources */,
+				FCC9B11327D53AB300EAA35C /* Poppins-ExtraBold.otf in Resources */,
+				FCC9B11427D53AB300EAA35C /* Poppins-Bold.otf in Resources */,
+				FCC9B10A27D53AB300EAA35C /* Poppins-ExtraLightItalic.otf in Resources */,
+				FCC9B11527D53AB300EAA35C /* Poppins-SemiBoldItalic.otf in Resources */,
+				FCC9B11027D53AB300EAA35C /* Poppins-ExtraLight.otf in Resources */,
+				FCC9B0EF27D537FE00EAA35C /* MainVCCell.xib in Resources */,
+				FCC99A1627DA1C3500B4EA6E /* TodayInfoCell.xib in Resources */,
+				FCC9B10527D53AB300EAA35C /* Poppins-Thin.otf in Resources */,
+				FCC9B10B27D53AB300EAA35C /* Poppins-SemiBold.otf in Resources */,
 				FC0E552F27D4D2B000DA49FC /* LaunchScreen.storyboard in Resources */,
 				FC0E552C27D4D2B000DA49FC /* Assets.xcassets in Resources */,
-				FC0E552727D4D2AF00DA49FC /* Main.storyboard in Resources */,
+				FCC9B10427D53AB300EAA35C /* Poppins-BoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +319,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC0E552427D4D2AF00DA49FC /* ViewController.swift in Sources */,
 				FC0E552A27D4D2AF00DA49FC /* App.xcdatamodeld in Sources */,
+				FCC9B0EE27D537FE00EAA35C /* MainVCCell.swift in Sources */,
+				FCC99A1927DA1E1800B4EA6E /* UIView + LoadFromNib.swift in Sources */,
+				FCC9B0E927D5373800EAA35C /* MainVC.swift in Sources */,
 				FC0E552027D4D2AF00DA49FC /* AppDelegate.swift in Sources */,
+				FCC99A1D27DA269700B4EA6E /* UICollectionView + Cell.swift in Sources */,
+				FCC99A1F27DA330A00B4EA6E /* UIView + RoundCorners.swift in Sources */,
 				FC0E552227D4D2AF00DA49FC /* SceneDelegate.swift in Sources */,
+				FCC99A1527DA1C3500B4EA6E /* TodayInfoCell.swift in Sources */,
+				FCC99A1B27DA242700B4EA6E /* UITableView + Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FC0E552527D4D2AF00DA49FC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC0E552627D4D2AF00DA49FC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FC0E552D27D4D2B000DA49FC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -298,7 +474,6 @@
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -326,7 +501,6 @@
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
