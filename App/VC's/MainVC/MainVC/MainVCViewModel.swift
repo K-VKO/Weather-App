@@ -29,7 +29,6 @@ final class MainVCViewModel: MainVCViewModelProtocol {
         }
         
     }
-    
     func getUserLocation() {
         UserLocationService.shared.getUserLocation()
     }

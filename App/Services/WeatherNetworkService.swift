@@ -12,6 +12,8 @@ import Alamofire
 final class WeatherNetworkService {
     static let shared = WeatherNetworkService()
     
+    private init() {}
+    
     func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather?, Error?) -> Void) {
         let longtitudeInt = Int(longtitude)
         let latitudeInt = Int(latitude)

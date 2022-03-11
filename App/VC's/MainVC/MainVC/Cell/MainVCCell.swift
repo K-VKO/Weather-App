@@ -18,9 +18,15 @@ final class MainVCCell: UITableViewCell {
     
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var weatherNumber: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
     
     
     func setup(weather: Weather) {
+        ImageLoaderService.shared.loadImage(name: weather.weather[0].icon) { grabbedImage in
+            if let grabbedImage = grabbedImage {
+                self.weatherImage.image = grabbedImage
+            }
+        }
         weatherDescription.text = weather.weather[0].description.capitalizeFirstLetter()
         weatherNumber.text = "\(Int(weather.weatherNumbers.temp)) °C"
     }

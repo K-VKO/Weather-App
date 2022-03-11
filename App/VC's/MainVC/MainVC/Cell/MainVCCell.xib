@@ -167,6 +167,7 @@
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="weatherDescription" destination="bKW-7N-MqL" id="yzx-3N-AQx"/>
+                <outlet property="weatherImage" destination="fHf-jw-USU" id="cGN-Sr-M4s"/>
                 <outlet property="weatherNumber" destination="aBJ-dh-Dfw" id="yDS-3z-b1u"/>
                 <outletCollection property="viewsToRound" destination="MU3-p3-gQK" collectionClass="NSMutableArray" id="X8H-2w-gCL"/>
                 <outletCollection property="viewsToRound" destination="bpS-rg-NyT" collectionClass="NSMutableArray" id="wm4-Bh-n07"/>

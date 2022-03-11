@@ -46,6 +46,7 @@
 		FCFDFF5D27DB712500488AEE /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */; };
 		FCFDFF5F27DB83C000488AEE /* MainVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */; };
 		FCFDFF6127DB906A00488AEE /* String + Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF6027DB906900488AEE /* String + Capitalize.swift */; };
+		FCFDFF6327DB95A100488AEE /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF6227DB95A100488AEE /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
 		FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModel.swift; sourceTree = "<group>"; };
 		FCFDFF6027DB906900488AEE /* String + Capitalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Capitalize.swift"; sourceTree = "<group>"; };
+		FCFDFF6227DB95A100488AEE /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 			children = (
 				FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */,
 				FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */,
+				FCFDFF6227DB95A100488AEE /* ImageLoaderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				FC0E552227D4D2AF00DA49FC /* SceneDelegate.swift in Sources */,
 				FCFDFF5B27DA42E900488AEE /* UserLocationService.swift in Sources */,
 				FCC99A1527DA1C3500B4EA6E /* TodayInfoCell.swift in Sources */,
+				FCFDFF6327DB95A100488AEE /* ImageLoaderService.swift in Sources */,
 				FCC99A1B27DA242700B4EA6E /* UITableView + Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
