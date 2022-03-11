@@ -41,6 +41,11 @@
 		FCC9B11327D53AB300EAA35C /* Poppins-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10127D53AB300EAA35C /* Poppins-ExtraBold.otf */; };
 		FCC9B11427D53AB300EAA35C /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10227D53AB300EAA35C /* Poppins-Bold.otf */; };
 		FCC9B11527D53AB300EAA35C /* Poppins-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCC9B10327D53AB300EAA35C /* Poppins-SemiBoldItalic.otf */; };
+		FCFDFF5827DA424000488AEE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5727DA424000488AEE /* Weather.swift */; };
+		FCFDFF5B27DA42E900488AEE /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */; };
+		FCFDFF5D27DB712500488AEE /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */; };
+		FCFDFF5F27DB83C000488AEE /* MainVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */; };
+		FCFDFF6127DB906A00488AEE /* String + Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF6027DB906900488AEE /* String + Capitalize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +87,11 @@
 		FCC9B10127D53AB300EAA35C /* Poppins-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.otf"; sourceTree = "<group>"; };
 		FCC9B10227D53AB300EAA35C /* Poppins-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.otf"; sourceTree = "<group>"; };
 		FCC9B10327D53AB300EAA35C /* Poppins-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		FCFDFF5727DA424000488AEE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
+		FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
+		FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModel.swift; sourceTree = "<group>"; };
+		FCFDFF6027DB906900488AEE /* String + Capitalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Capitalize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +120,6 @@
 				C68521F234B4D78D27DCCE5B /* Pods-App.debug.xcconfig */,
 				0D7645DCDBBB48F9183505F3 /* Pods-App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +144,8 @@
 		FC0E551E27D4D2AF00DA49FC /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FCFDFF5927DA42D600488AEE /* Services */,
+				FCFDFF5627DA423300488AEE /* Models */,
 				FCC99A1727DA1DD700B4EA6E /* Helpers */,
 				FCC9B0F027D53A9800EAA35C /* Media */,
 				FCC9B0E527D536ED00EAA35C /* App */,
@@ -152,6 +163,7 @@
 			children = (
 				FCC9B0EB27D537E400EAA35C /* Cell */,
 				FCC9B0E727D5373800EAA35C /* MainVC.swift */,
+				FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */,
 				FCC9B0E827D5373800EAA35C /* MainVC.xib */,
 			);
 			path = MainVC;
@@ -170,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				FCC99A1827DA1E1800B4EA6E /* UIView + LoadFromNib.swift */,
+				FCFDFF6027DB906900488AEE /* String + Capitalize.swift */,
 				FCC99A1E27DA330A00B4EA6E /* UIView + RoundCorners.swift */,
 				FCC99A1A27DA242700B4EA6E /* UITableView + Cell.swift */,
 				FCC99A1C27DA269700B4EA6E /* UICollectionView + Cell.swift */,
@@ -251,6 +264,23 @@
 				FCC9B0F427D53AB300EAA35C /* Poppins-ThinItalic.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FCFDFF5627DA423300488AEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDFF5727DA424000488AEE /* Weather.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCFDFF5927DA42D600488AEE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */,
+				FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,14 +418,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFDFF5F27DB83C000488AEE /* MainVCViewModel.swift in Sources */,
 				FC0E552A27D4D2AF00DA49FC /* App.xcdatamodeld in Sources */,
 				FCC9B0EE27D537FE00EAA35C /* MainVCCell.swift in Sources */,
 				FCC99A1927DA1E1800B4EA6E /* UIView + LoadFromNib.swift in Sources */,
+				FCFDFF5827DA424000488AEE /* Weather.swift in Sources */,
 				FCC9B0E927D5373800EAA35C /* MainVC.swift in Sources */,
 				FC0E552027D4D2AF00DA49FC /* AppDelegate.swift in Sources */,
+				FCFDFF6127DB906A00488AEE /* String + Capitalize.swift in Sources */,
 				FCC99A1D27DA269700B4EA6E /* UICollectionView + Cell.swift in Sources */,
+				FCFDFF5D27DB712500488AEE /* WeatherNetworkService.swift in Sources */,
 				FCC99A1F27DA330A00B4EA6E /* UIView + RoundCorners.swift in Sources */,
 				FC0E552227D4D2AF00DA49FC /* SceneDelegate.swift in Sources */,
+				FCFDFF5B27DA42E900488AEE /* UserLocationService.swift in Sources */,
 				FCC99A1527DA1C3500B4EA6E /* TodayInfoCell.swift in Sources */,
 				FCC99A1B27DA242700B4EA6E /* UITableView + Cell.swift in Sources */,
 			);

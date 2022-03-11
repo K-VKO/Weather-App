@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MainVC: UIViewController {
+    private let viewModel: MainVCViewModelProtocol = MainVCViewModel()
+    private let disposeBag =  DisposeBag()
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -15,6 +20,11 @@ final class MainVC: UIViewController {
 
             tableView.registerCell(type: MainVCCell.self)
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.getUserLocation()
     }
 }
 
@@ -24,7 +34,12 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(withType: MainVCCell.self)
+        let cell = tableView.dequeueCell(withType: MainVCCell.self) as! MainVCCell
+        viewModel.weather.subscribe { event in
+            if let weather = event.element {
+                cell.setup(weather: weather)
+            }
+        }.disposed(by: disposeBag)
         return cell
     }
 }
