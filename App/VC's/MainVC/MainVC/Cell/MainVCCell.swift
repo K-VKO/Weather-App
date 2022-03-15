@@ -22,11 +22,7 @@ final class MainVCCell: UITableViewCell {
     
     
     func setupTodayWeather(weather: Weather) {
-        ImageLoaderService.shared.loadImage(name: weather.weather[0].icon) { grabbedImage in
-            if let grabbedImage = grabbedImage {
-                self.weatherImage.image = grabbedImage
-            }
-        }
+        weatherImage.image = UIImage(named: weather.weather[0].icon)
         weatherDescription.text = weather.weather[0].description.capitalizeFirstLetter()
         weatherNumber.text = "\(Int(weather.weatherNumbers.temp)) °C"
     }
