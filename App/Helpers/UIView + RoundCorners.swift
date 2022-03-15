@@ -7,15 +7,11 @@
 
 import UIKit
 
-extension UIStackView {
-    func customize(backgroundColor: UIColor = .clear, radiusSize: CGFloat = 0) {
-        let subView = UIView(frame: bounds)
-        subView.backgroundColor = backgroundColor
-        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        insertSubview(subView, at: 0)
-
-        subView.layer.cornerRadius = radiusSize
-        subView.layer.masksToBounds = true
-        subView.clipsToBounds = true
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

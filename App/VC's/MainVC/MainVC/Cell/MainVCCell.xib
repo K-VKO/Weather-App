@@ -96,7 +96,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vis-d3-h9K">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vis-d3-h9K">
                                 <rect key="frame" x="0.0" y="0.0" width="565" height="120"/>
                             </imageView>
                         </subviews>
@@ -166,6 +166,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="articleImage" destination="vis-d3-h9K" id="4DX-aI-6Dt"/>
+                <outlet property="articleText" destination="ezK-60-nsc" id="mnq-WA-1zu"/>
                 <outlet property="weatherDescription" destination="bKW-7N-MqL" id="yzx-3N-AQx"/>
                 <outlet property="weatherImage" destination="fHf-jw-USU" id="cGN-Sr-M4s"/>
                 <outlet property="weatherNumber" destination="aBJ-dh-Dfw" id="yDS-3z-b1u"/>

@@ -31,4 +31,20 @@ final class ImageLoaderService {
             }
         }
     }
+    
+    func loadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        AF.request(url, method: .get).response{ response in
+            
+            switch response.result {
+            case .success(let responseData):
+                let image = UIImage(data: responseData!, scale:1)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+                
+            case .failure(let error):
+                print("error--->",error)
+            }
+        }
+    }
 }

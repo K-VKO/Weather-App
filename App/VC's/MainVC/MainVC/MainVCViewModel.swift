@@ -11,13 +11,17 @@ import RxCocoa
 
 protocol MainVCViewModelProtocol {
     var weather: PublishSubject<Weather> { get }
+    var article: PublishSubject<Article> { get }
     
     func getUserLocation()
+    
+    func loadArticle()
     func loadWeather(longtitude: Double, latitude: Double)
 }
 
 final class MainVCViewModel: MainVCViewModelProtocol {
     var weather = PublishSubject<Weather>()
+    var article = PublishSubject<Article>()
     
     func loadWeather(longtitude: Double, latitude: Double) {
         
@@ -31,6 +35,14 @@ final class MainVCViewModel: MainVCViewModelProtocol {
     }
     func getUserLocation() {
         UserLocationService.shared.getUserLocation()
+    }
+    func loadArticle() {
+        NewsNetworkService.shared.loadArticle { [weak self] grabbedArticle, error in
+            guard error == nil else { return }
+            if let grabbedArticle = grabbedArticle {
+                self?.article.onNext(grabbedArticle)
+            }
+        }
     }
     
     init() {

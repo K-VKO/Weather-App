@@ -24,6 +24,7 @@ final class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadArticle()
         viewModel.getUserLocation()
     }
 }
@@ -35,11 +36,19 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(withType: MainVCCell.self) as! MainVCCell
+        
         viewModel.weather.subscribe { event in
             if let weather = event.element {
-                cell.setup(weather: weather)
+                cell.setupTodayWeather(weather: weather)
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.article.subscribe { event in
+            if let article = event.element {
+                cell.setupArticle(article: article)
+            }
+        }.disposed(by: disposeBag)
+        
         return cell
     }
 }
