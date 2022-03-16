@@ -47,7 +47,6 @@
 		FCFDFF5827DA424000488AEE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5727DA424000488AEE /* Weather.swift */; };
 		FCFDFF5B27DA42E900488AEE /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */; };
 		FCFDFF5D27DB712500488AEE /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */; };
-		FCFDFF5F27DB83C000488AEE /* MainVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */; };
 		FCFDFF6127DB906A00488AEE /* String + Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF6027DB906900488AEE /* String + Capitalize.swift */; };
 		FCFDFF6327DB95A100488AEE /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDFF6227DB95A100488AEE /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +96,6 @@
 		FCFDFF5727DA424000488AEE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		FCFDFF5A27DA42E900488AEE /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
 		FCFDFF5C27DB712500488AEE /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
-		FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModel.swift; sourceTree = "<group>"; };
 		FCFDFF6027DB906900488AEE /* String + Capitalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Capitalize.swift"; sourceTree = "<group>"; };
 		FCFDFF6227DB95A100488AEE /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +169,6 @@
 			children = (
 				FCC9B0EB27D537E400EAA35C /* Cell */,
 				FCC9B0E727D5373800EAA35C /* MainVC.swift */,
-				FCFDFF5E27DB83C000488AEE /* MainVCViewModel.swift */,
 				FCC9B0E827D5373800EAA35C /* MainVC.xib */,
 			);
 			path = MainVC;
@@ -431,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F689427E094100030E4D3 /* MainVCCellViewModel.swift in Sources */,
-				FCFDFF5F27DB83C000488AEE /* MainVCViewModel.swift in Sources */,
 				FC4F689027E07A100030E4D3 /* NewsNetworkService.swift in Sources */,
 				FC4F689227E07B530030E4D3 /* Article.swift in Sources */,
 				FC0E552A27D4D2AF00DA49FC /* App.xcdatamodeld in Sources */,

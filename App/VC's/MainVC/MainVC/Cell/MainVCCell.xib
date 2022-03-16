@@ -39,20 +39,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="435" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Chance of rain 60%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Giz-WJ-0H7">
-                                                <rect key="frame" x="0.0" y="0.0" width="435" height="31.5"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="435" height="37.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bKW-7N-MqL">
-                                                <rect key="frame" x="0.0" y="39.5" width="435" height="65.5"/>
+                                                <rect key="frame" x="0.0" y="45.5" width="435" height="58"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72*F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBJ-dh-Dfw">
-                                                <rect key="frame" x="0.0" y="113" width="435" height="37"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="24"/>
+                                                <rect key="frame" x="0.0" y="111.5" width="435" height="38.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -168,7 +168,8 @@
             <connections>
                 <outlet property="articleImage" destination="vis-d3-h9K" id="4DX-aI-6Dt"/>
                 <outlet property="articleText" destination="ezK-60-nsc" id="mnq-WA-1zu"/>
-                <outlet property="weatherDescription" destination="bKW-7N-MqL" id="yzx-3N-AQx"/>
+                <outlet property="cityName" destination="bKW-7N-MqL" id="9Y3-dY-aQM"/>
+                <outlet property="weatherDescription" destination="Giz-WJ-0H7" id="rZs-Bf-wyq"/>
                 <outlet property="weatherImage" destination="fHf-jw-USU" id="cGN-Sr-M4s"/>
                 <outlet property="weatherNumber" destination="aBJ-dh-Dfw" id="yDS-3z-b1u"/>
                 <outletCollection property="viewsToRound" destination="MU3-p3-gQK" collectionClass="NSMutableArray" id="X8H-2w-gCL"/>

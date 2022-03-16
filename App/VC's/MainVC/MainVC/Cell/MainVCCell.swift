@@ -11,15 +11,18 @@ import RxCocoa
 
 
 final class MainVCCell: UITableViewCell {
+    var viewModel: MainVCCellViewModelProtocol = MainVCCellViewModel()
+    let disposeBag = DisposeBag()
+    
     @IBOutlet var viewsToRound: [UIView]!
     
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var weatherNumber: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var cityName: UILabel!
     
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleText: UILabel!
-    
     
     func setupTodayWeather(weather: Weather) {
         weatherImage.image = UIImage(named: weather.weather[0].icon)
@@ -35,6 +38,35 @@ final class MainVCCell: UITableViewCell {
             }
         }
     }
+    
+    private func bind() {
+        viewModel.weather.subscribe {[weak self] event in
+            if let weather = event.element {
+                self?.setupTodayWeather(weather: weather)
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.article.subscribe {[weak self] event in
+            if let article = event.element {
+                self?.setupArticle(article: article)
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.cityNameToDisplay.subscribe {[weak self] event in
+            if let cityName = event.element {
+                self?.cityName.text = cityName
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        bind()
+        viewModel.getUserLocation()
+        viewModel.loadArticle()
+    }
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         viewsToRound.forEach { view in
