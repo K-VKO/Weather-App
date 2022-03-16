@@ -45,6 +45,10 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
         }
     }
     
+    func saveCurrentWeatherToDB() {
+        
+    }
+    
     init() {
         UserLocationService.shared.delegate = self
     }
@@ -53,8 +57,7 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
 extension MainVCCellViewModel: UserLocationServiceDelegate {
     func updatedLocation(longtitute: Double, latitude: Double, cityName: String?) {
         loadWeather(longtitude: longtitute, latitude: latitude)
-        if let cityName = cityName {
-            cityNameToDisplay.onNext(cityName)
-        }
+        guard let cityName = cityName else { return }
+        cityNameToDisplay.onNext(cityName)
     }
 }

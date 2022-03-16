@@ -48,7 +48,6 @@ extension UserLocationService: CLLocationManagerDelegate {
                 self?.delegate?.updatedLocation(longtitute: location.coordinate.longitude, latitude: location.coordinate.latitude, cityName: cityName)
             }
             print("Found user's location: \(location.coordinate.latitude)")
-
             locationManager.stopUpdatingLocation()
         }
     }
