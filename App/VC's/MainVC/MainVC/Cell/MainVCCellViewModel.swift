@@ -16,7 +16,8 @@ protocol MainVCCellViewModelProtocol {
     func getUserLocation()
     
     func loadArticle()
-    func loadWeather(longtitude: Double, latitude: Double)
+    func loadWeatherFromDB()
+    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void)
 }
 
 final class MainVCCellViewModel: MainVCCellViewModelProtocol {
@@ -25,11 +26,12 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
     var cityNameToDisplay = PublishSubject<String>()
     
     
-    func loadWeather(longtitude: Double, latitude: Double) {
-        WeatherNetworkService.shared.loadWeather(longtitude: longtitude, latitude: latitude) { [weak self] weather, error in
+    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void) {
+        WeatherNetworkService.shared.loadWeather(longtitude: longtitude, latitude: latitude) { weather, error in
             guard error == nil else { return }
             if let weather = weather {
-                self?.weather.onNext(weather)
+//                self?.weather.onNext(weather)
+                completion(weather)
             }
         }
     }
@@ -45,8 +47,19 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
         }
     }
     
-    func saveCurrentWeatherToDB() {
-        
+
+    
+    func loadWeatherFromDB() {
+        CoreDataService.getCurrentWeatherFromDB {[weak self]  weatherDB in
+            if let weatherDB = weatherDB,
+               let weatherDescription = weatherDB.weatherDescription,
+               let icon = weatherDB.icon {
+                let weatherDescription = WeatherDescription(description: weatherDescription, icon: icon)
+                let main = Main(temp: 18.9)
+                let weather = Weather(weather: [weatherDescription], weatherNumbers: main, cityName: weatherDB.cityName)
+                self?.weather.onNext(weather)
+            }
+        }
     }
     
     init() {
@@ -56,8 +69,13 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
 
 extension MainVCCellViewModel: UserLocationServiceDelegate {
     func updatedLocation(longtitute: Double, latitude: Double, cityName: String?) {
-        loadWeather(longtitude: longtitute, latitude: latitude)
-        guard let cityName = cityName else { return }
-        cityNameToDisplay.onNext(cityName)
+        loadWeather(longtitude: longtitute, latitude: latitude) {[weak self] grabbedWeather in
+            guard let cityName = cityName else { return }
+            var weather = grabbedWeather
+            weather.cityName = cityName
+            self?.weather.onNext(weather)
+            CoreDataService.saveCurrentWeatherToDB(weather: weather)
+        }
+        
     }
 }

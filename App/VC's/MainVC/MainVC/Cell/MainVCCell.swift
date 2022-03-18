@@ -62,10 +62,10 @@ final class MainVCCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bind()
+        viewModel.loadWeatherFromDB()
         viewModel.getUserLocation()
         viewModel.loadArticle()
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
