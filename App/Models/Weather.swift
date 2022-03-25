@@ -21,7 +21,7 @@ struct Weather: Decodable {
 }
 
 struct Main: Decodable {
-    var temp: String
+    var temp: String?
     
     enum CodingKeys: String, CodingKey {
         case temp
@@ -29,7 +29,11 @@ struct Main: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        temp = try String(container.decode(Double.self, forKey: .temp))
+        temp = try "\(Int(container.decode(Double.self, forKey: .temp)))"
+    }
+    
+    init() {
+        self.temp = nil
     }
 }
 

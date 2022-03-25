@@ -12,8 +12,10 @@ protocol MainVCCellViewModelProtocol {
     var weather: PublishSubject<Weather> { get }
     var article: PublishSubject<Article> { get }
     var cityNameToDisplay: PublishSubject<String> { get }
+    var weatherUpdateDate: PublishSubject<String> { get }
     
-    func getUserLocation()
+    func getUserLocationAndLoadWeather()
+    func getWeatherUpdateDate()
     
     func loadArticle()
     func loadWeatherFromDB()
@@ -24,20 +26,22 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
     var weather = PublishSubject<Weather>()
     var article = PublishSubject<Article>()
     var cityNameToDisplay = PublishSubject<String>()
+    var weatherUpdateDate = PublishSubject<String>()
     
     
     func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void) {
         WeatherNetworkService.shared.loadWeather(longtitude: longtitude, latitude: latitude) { weather, error in
             guard error == nil else { return }
             if let weather = weather {
-//                self?.weather.onNext(weather)
                 completion(weather)
             }
         }
     }
-    func getUserLocation() {
+    
+    func getUserLocationAndLoadWeather() {
         UserLocationService.shared.getUserLocation()
     }
+    
     func loadArticle() {
         NewsNetworkService.shared.loadArticle { [weak self] grabbedArticle, error in
             guard error == nil else { return }
@@ -47,18 +51,16 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
         }
     }
     
-
-    
     func loadWeatherFromDB() {
-        CoreDataService.getCurrentWeatherFromDB {[weak self]  weatherDB in
-            if let weatherDB = weatherDB,
-               let weatherDescription = weatherDB.weatherDescription,
-               let icon = weatherDB.icon {
-                let weatherDescription = WeatherDescription(description: weatherDescription, icon: icon)
-                let main = Main(temp: 18.9)
-                let weather = Weather(weather: [weatherDescription], weatherNumbers: main, cityName: weatherDB.cityName)
-                self?.weather.onNext(weather)
-            }
+        CoreDataService.getCurrentWeatherFromDB {[weak self] grabbedWeather in
+            guard let weather = grabbedWeather else { return }
+            self?.weather.onNext(weather)
+        }
+    }
+    
+    func getWeatherUpdateDate() {
+        if let updateDate = UserDefaultsService.shared.getWeatherUpdateDate() {
+            weatherUpdateDate.onNext(updateDate)
         }
     }
     
@@ -75,6 +77,8 @@ extension MainVCCellViewModel: UserLocationServiceDelegate {
             weather.cityName = cityName
             self?.weather.onNext(weather)
             CoreDataService.saveCurrentWeatherToDB(weather: weather)
+            UserDefaultsService.shared.weatherUpdateDateChanged()
+            self?.getWeatherUpdateDate()
         }
         
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -142,6 +142,12 @@
                             <constraint firstAttribute="bottom" secondItem="hOQ-Xq-tle" secondAttribute="bottom" constant="20" id="jfX-L3-szU"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE5-eB-6A9">
+                        <rect key="frame" x="480" y="199" width="105" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="0.87373739360000002" green="0.87373739360000002" blue="0.87373739360000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
@@ -151,12 +157,14 @@
                     <constraint firstItem="M35-Za-7BC" firstAttribute="top" secondItem="bpS-rg-NyT" secondAttribute="bottom" constant="40" id="AS6-TU-KvA"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="JyA-dU-3jK" secondAttribute="bottom" constant="20" id="AoZ-mt-7bd"/>
                     <constraint firstItem="OBp-p7-jEN" firstAttribute="top" secondItem="MU3-p3-gQK" secondAttribute="bottom" constant="40" id="Hli-Rf-z24"/>
+                    <constraint firstItem="VE5-eB-6A9" firstAttribute="top" secondItem="MU3-p3-gQK" secondAttribute="bottom" constant="8" symbolic="YES" id="TfF-Vg-qqT"/>
                     <constraint firstItem="MU3-p3-gQK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZWm-Pg-g6E"/>
                     <constraint firstItem="JyA-dU-3jK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aVy-dU-ybQ"/>
                     <constraint firstItem="JyA-dU-3jK" firstAttribute="top" secondItem="M35-Za-7BC" secondAttribute="bottom" constant="10" id="cxg-KO-yQG"/>
                     <constraint firstItem="bpS-rg-NyT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dgY-nz-AzH"/>
                     <constraint firstItem="bpS-rg-NyT" firstAttribute="top" secondItem="OBp-p7-jEN" secondAttribute="bottom" constant="10" id="ekY-Xk-Jr6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MU3-p3-gQK" secondAttribute="trailing" id="hb1-KE-x4a"/>
+                    <constraint firstItem="VE5-eB-6A9" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="nfp-br-KCW"/>
                     <constraint firstItem="OBp-p7-jEN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pNu-AA-IVQ"/>
                     <constraint firstItem="JyA-dU-3jK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="rNo-KD-o93"/>
                     <constraint firstItem="MU3-p3-gQK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="uEP-bG-mjD"/>
@@ -172,6 +180,7 @@
                 <outlet property="weatherDescription" destination="Giz-WJ-0H7" id="rZs-Bf-wyq"/>
                 <outlet property="weatherImage" destination="fHf-jw-USU" id="cGN-Sr-M4s"/>
                 <outlet property="weatherNumber" destination="aBJ-dh-Dfw" id="yDS-3z-b1u"/>
+                <outlet property="weatherUpdatedDate" destination="VE5-eB-6A9" id="Zse-GG-AG7"/>
                 <outletCollection property="viewsToRound" destination="MU3-p3-gQK" collectionClass="NSMutableArray" id="X8H-2w-gCL"/>
                 <outletCollection property="viewsToRound" destination="bpS-rg-NyT" collectionClass="NSMutableArray" id="wm4-Bh-n07"/>
                 <outletCollection property="viewsToRound" destination="JyA-dU-3jK" collectionClass="NSMutableArray" id="JT9-Bi-jf5"/>

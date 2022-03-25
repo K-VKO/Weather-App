@@ -16,7 +16,6 @@ final class UserLocationService: NSObject {
     static let shared = UserLocationService()
     
     let geoCoder = CLGeocoder()
-    let location = CLLocation(latitude: 40.730610, longitude:  -73.935242) // <- New York
 
     let locationManager = CLLocationManager()
     
@@ -47,12 +46,19 @@ extension UserLocationService: CLLocationManagerDelegate {
             getCityName(location: location) { [weak self] cityName in
                 self?.delegate?.updatedLocation(longtitute: location.coordinate.longitude, latitude: location.coordinate.latitude, cityName: cityName)
             }
-            print("Found user's location: \(location.coordinate.latitude)")
             locationManager.stopUpdatingLocation()
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == .authorizedAlways || status == .authorizedWhenInUse){
+            print("autorized")
+        } else if(status == .denied){
+            print("denied")
+        }
     }
 }
