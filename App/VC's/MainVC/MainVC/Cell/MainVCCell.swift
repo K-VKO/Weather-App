@@ -11,7 +11,7 @@ import RxCocoa
 
 
 final class MainVCCell: UITableViewCell {
-    var viewModel: MainVCCellViewModelProtocol = MainVCCellViewModel()
+    private var viewModel: MainVCCellViewModelProtocol = MainVCCellViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet var viewsToRound: [UIView]!
@@ -20,14 +20,16 @@ final class MainVCCell: UITableViewCell {
     @IBOutlet weak var weatherNumber: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var weatherUpdatedDate: UILabel!
     
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleText: UILabel!
     
     func setupTodayWeather(weather: Weather) {
+        cityName.text = weather.cityName
         weatherImage.image = UIImage(named: weather.weather[0].icon)
         weatherDescription.text = weather.weather[0].description.capitalizeFirstLetter()
-        weatherNumber.text = "\(Int(weather.weatherNumbers.temp)) °C"
+        weatherNumber.text = weather.weatherNumbers.temp?.addCelsius()
     }
     
     func setupArticle(article: Article) {
@@ -57,15 +59,22 @@ final class MainVCCell: UITableViewCell {
                 self?.cityName.text = cityName
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.weatherUpdateDate.subscribe {[weak self] event in
+            if let weatherUpdateDate = event.element {
+                self?.weatherUpdatedDate.text = "Last updated: \(weatherUpdateDate)"
+            }
+        }.disposed(by: disposeBag)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         bind()
-        viewModel.getUserLocation()
+        viewModel.loadWeatherFromDB()
+        viewModel.getWeatherUpdateDate()
+        viewModel.getUserLocationAndLoadWeather()
         viewModel.loadArticle()
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()

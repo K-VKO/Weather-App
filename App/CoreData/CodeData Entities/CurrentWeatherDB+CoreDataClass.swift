@@ -2,7 +2,7 @@
 //  CurrentWeatherDB+CoreDataClass.swift
 //  App
 //
-//  Created by Константин Вороненко on 16.03.22.
+//  Created by Константин Вороненко on 18.03.22.
 //
 //
 
