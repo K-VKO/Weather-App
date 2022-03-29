@@ -13,6 +13,7 @@ protocol MainVCCellViewModelProtocol {
     var article: PublishSubject<Article> { get }
     var cityNameToDisplay: PublishSubject<String> { get }
     var weatherUpdateDate: PublishSubject<String> { get }
+    var isAccessDenied: PublishSubject<Bool> { get }
     
     func getUserLocationAndLoadWeather()
     func getWeatherUpdateDate()
@@ -27,6 +28,7 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
     var article = PublishSubject<Article>()
     var cityNameToDisplay = PublishSubject<String>()
     var weatherUpdateDate = PublishSubject<String>()
+    var isAccessDenied = PublishSubject<Bool>()
     
     
     func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void) {
@@ -71,15 +73,22 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
 
 extension MainVCCellViewModel: UserLocationServiceDelegate {
     func updatedLocation(longtitute: Double, latitude: Double, cityName: String?) {
+        isAccessDenied.onNext(false)
         loadWeather(longtitude: longtitute, latitude: latitude) {[weak self] grabbedWeather in
             guard let cityName = cityName else { return }
             var weather = grabbedWeather
             weather.cityName = cityName
+            
             self?.weather.onNext(weather)
-            CoreDataService.saveCurrentWeatherToDB(weather: weather)
+            
             UserDefaultsService.shared.weatherUpdateDateChanged()
             self?.getWeatherUpdateDate()
+            
+            CoreDataService.saveCurrentWeatherToDB(weather: weather)
         }
-        
+    }
+    
+    func deniedLocationAccess() {
+        isAccessDenied.onNext(true)
     }
 }

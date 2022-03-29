@@ -9,10 +9,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol MainVCCellDelegate {
+    func showAlert()
+}
 
 final class MainVCCell: UITableViewCell {
     private var viewModel: MainVCCellViewModelProtocol = MainVCCellViewModel()
     let disposeBag = DisposeBag()
+    
+    var delegate: MainVCCellDelegate?
     
     @IBOutlet var viewsToRound: [UIView]!
     
@@ -65,14 +70,28 @@ final class MainVCCell: UITableViewCell {
                 self?.weatherUpdatedDate.text = "Last updated: \(weatherUpdateDate)"
             }
         }.disposed(by: disposeBag)
+        
+        
+        viewModel.isAccessDenied.subscribe {[weak self] event in
+            if let accessDenied = event.element,
+            accessDenied == true {
+                self?.delegate?.showAlert()
+            }
+        }.disposed(by: disposeBag)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         bind()
+        
+        //MARK: Trying to load weather from DB if it exists
         viewModel.loadWeatherFromDB()
         viewModel.getWeatherUpdateDate()
+        
+        //MARK: Updating weather from API
         viewModel.getUserLocationAndLoadWeather()
+        
+        //MARK: Loading article
         viewModel.loadArticle()
     }
     

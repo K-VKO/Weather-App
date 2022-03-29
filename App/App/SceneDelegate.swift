@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -45,6 +46,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        let locationManager = CLLocationManager()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            if locationManager.authorizationStatus == .denied {
+                let alertController = UIAlertController(title: "Attention!", message: "App needs permission to use your location", preferredStyle: .alert)
+                
+                let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+                    }
+                }
+                alertController.addAction(settingsAction)
+                
+                self.window?.rootViewController?.present(alertController, animated: true)
+            }
+            
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -55,6 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+
 
 
 }

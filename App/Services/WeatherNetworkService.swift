@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+//https://api.openweathermap.org/data/2.5/onecall?lat=51&lon=51&exclude=daily,minutely,alerts&appid=cf1866fe88f904ceafead4524782325c&units=metric
+
 
 final class WeatherNetworkService {
     static let shared = WeatherNetworkService()
@@ -29,4 +31,5 @@ final class WeatherNetworkService {
             completion(weather, nil)
         }
     }
+    
 }
