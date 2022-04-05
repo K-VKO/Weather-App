@@ -10,6 +10,8 @@ import CoreLocation
 
 protocol UserLocationServiceDelegate {
     func updatedLocation(longtitute: Double, latitude: Double, cityName: String?)
+    
+    func deniedLocationAccess()
 }
 
 final class UserLocationService: NSObject {
@@ -27,7 +29,7 @@ final class UserLocationService: NSObject {
         locationManager.startUpdatingLocation()
     }
     
-    func getCityName(location: CLLocation, completion: @escaping (String?) -> Void) {
+    private func getCityName(location: CLLocation, completion: @escaping (String?) -> Void) {
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
             placemarks?.forEach { (placemark) in
                 if let city = placemark.locality {
@@ -55,10 +57,8 @@ extension UserLocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if(status == .authorizedAlways || status == .authorizedWhenInUse){
-            print("autorized")
-        } else if(status == .denied){
-            print("denied")
+        if status == .denied {
+            delegate?.deniedLocationAccess()
         }
     }
 }

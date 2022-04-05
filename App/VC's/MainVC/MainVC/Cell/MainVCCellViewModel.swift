@@ -9,27 +9,29 @@ import RxSwift
 import RxCocoa
 
 protocol MainVCCellViewModelProtocol {
-    var weather: PublishSubject<Weather> { get }
+    var weather: PublishSubject<LoadedWeather> { get }
     var article: PublishSubject<Article> { get }
     var cityNameToDisplay: PublishSubject<String> { get }
     var weatherUpdateDate: PublishSubject<String> { get }
+    var isAccessDenied: PublishSubject<Bool> { get }
     
     func getUserLocationAndLoadWeather()
     func getWeatherUpdateDate()
     
     func loadArticle()
     func loadWeatherFromDB()
-    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void)
+    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (LoadedWeather) -> Void)
 }
 
 final class MainVCCellViewModel: MainVCCellViewModelProtocol {
-    var weather = PublishSubject<Weather>()
+    var weather = PublishSubject<LoadedWeather>()
     var article = PublishSubject<Article>()
     var cityNameToDisplay = PublishSubject<String>()
     var weatherUpdateDate = PublishSubject<String>()
+    var isAccessDenied = PublishSubject<Bool>()
     
     
-    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather) -> Void) {
+    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (LoadedWeather) -> Void) {
         WeatherNetworkService.shared.loadWeather(longtitude: longtitude, latitude: latitude) { weather, error in
             guard error == nil else { return }
             if let weather = weather {
@@ -52,9 +54,10 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
     }
     
     func loadWeatherFromDB() {
-        CoreDataService.getCurrentWeatherFromDB {[weak self] grabbedWeather in
+        CoreDataService.getWeatherFromDB {[weak self] grabbedWeather in
             guard let weather = grabbedWeather else { return }
-            self?.weather.onNext(weather)
+            print("found weather: \(weather.current?.temp)")
+//            self?.weather.onNext(weather)
         }
     }
     
@@ -71,15 +74,24 @@ final class MainVCCellViewModel: MainVCCellViewModelProtocol {
 
 extension MainVCCellViewModel: UserLocationServiceDelegate {
     func updatedLocation(longtitute: Double, latitude: Double, cityName: String?) {
+        isAccessDenied.onNext(false)
+        
         loadWeather(longtitude: longtitute, latitude: latitude) {[weak self] grabbedWeather in
             guard let cityName = cityName else { return }
             var weather = grabbedWeather
             weather.cityName = cityName
+            
             self?.weather.onNext(weather)
-            CoreDataService.saveCurrentWeatherToDB(weather: weather)
+            
             UserDefaultsService.shared.weatherUpdateDateChanged()
             self?.getWeatherUpdateDate()
+            
+            CoreDataService.saveCurrentWeatherToDB(weather: weather)
         }
         
+    }
+    
+    func deniedLocationAccess() {
+        isAccessDenied.onNext(true)
     }
 }

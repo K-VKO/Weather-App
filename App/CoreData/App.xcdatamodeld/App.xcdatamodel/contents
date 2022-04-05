@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CurrentWeatherDB" representedClassName="CurrentWeatherDB" syncable="YES">
-        <attribute name="cityName" attributeType="String"/>
-        <attribute name="icon" attributeType="String"/>
-        <attribute name="temp" attributeType="String"/>
-        <attribute name="weatherDescription" attributeType="String"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Current" representedClassName="Current" syncable="YES" codeGenerationType="class">
+        <attribute name="dt" optional="YES"/>
+        <attribute name="temp" optional="YES" attributeType="String"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDB" inverseName="current" inverseEntity="WeatherDB"/>
+    </entity>
+    <entity name="Hourly" representedClassName="Hourly" syncable="YES" codeGenerationType="class">
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDB" inverseName="hourly" inverseEntity="WeatherDB"/>
+    </entity>
+    <entity name="WeatherDB" representedClassName="WeatherDB" syncable="YES">
+        <attribute name="cityName" optional="YES" attributeType="String"/>
+        <relationship name="current" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Current" inverseName="weather" inverseEntity="Current"/>
+        <relationship name="hourly" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hourly" inverseName="weather" inverseEntity="Hourly"/>
     </entity>
     <elements>
-        <element name="CurrentWeatherDB" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="WeatherDB" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Current" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="Hourly" positionX="-36" positionY="72" width="128" height="44"/>
     </elements>
 </model>
