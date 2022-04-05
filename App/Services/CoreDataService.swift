@@ -17,7 +17,7 @@ final class CoreDataService: NSManagedObjectContext {
     // MARK: - Core Data stack
     static var persistentContainer: NSPersistentCloudKitContainer = {
         
-        let container = NSPersistentCloudKitContainer(name: "App")
+        let container = NSPersistentCloudKitContainer(name: "CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -40,33 +40,38 @@ final class CoreDataService: NSManagedObjectContext {
     }
 }
 extension CoreDataService {
-    
-    static func saveCurrentWeatherToDB(weather: Weather) {
-        let weatherDB = CurrentWeatherDB(context: CoreDataService.managedObjectContext)
+    static func saveCurrentWeatherToDB(weather: LoadedWeather) {
+        var weatherDB: WeatherDB?
+        
+        getWeatherFromDB { grabbedWeatherDB in
+            if let grabbedWeatherDB = grabbedWeatherDB {
+                weatherDB = grabbedWeatherDB
+            } else {
+                weatherDB = WeatherDB(context: CoreDataService.managedObjectContext)
+                weatherDB?.current = CurrentDB(context: CoreDataService.managedObjectContext)
+            }
+            
+        }
+        
+        guard let weatherDB = weatherDB else { return }
         guard let cityName = weather.cityName else { return }
+        
         weatherDB.cityName = cityName
-        weatherDB.icon = weather.weather[0].icon
-        weatherDB.temp = weather.weatherNumbers.temp
-        weatherDB.weatherDescription = weather.weather[0].description
+        weatherDB.current?.icon = weather.current.weather[0].icon
+        weatherDB.current?.temp = weather.current.temp
+        weatherDB.current?.weatherDescription = weather.current.weather[0].description
         
         CoreDataService.saveContext()
     }
     
-    static func getCurrentWeatherFromDB(completion: @escaping (Weather?) -> Void) {
-        let request = CurrentWeatherDB.fetchRequest()
+    static func getWeatherFromDB(completion: @escaping (WeatherDB?) -> Void) {
+        let request = WeatherDB.fetchRequest()
         if let weatherDB = try? CoreDataService.managedObjectContext
             .fetch(request)
             .first {
-            if let weatherDescription = weatherDB.weatherDescription,
-               let icon = weatherDB.icon {
-                let weatherDescription = WeatherDescription(description: weatherDescription, icon: icon)
-                var main = Main()
-                main.temp = weatherDB.temp
-                let weather = Weather(weather: [weatherDescription], weatherNumbers: main, cityName: weatherDB.cityName)
-                completion(weather)
-            } else {
-                completion(nil)
-            }
+            completion(weatherDB)
+        } else {
+            completion(nil)
         }
     }
 }

@@ -16,13 +16,13 @@ final class WeatherNetworkService {
     
     private init() {}
     
-    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (Weather?, Error?) -> Void) {
+    func loadWeather(longtitude: Double, latitude: Double, completion: @escaping (LoadedWeather?, Error?) -> Void) {
         let longtitudeInt = Int(longtitude)
         let latitudeInt = Int(latitude)
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitudeInt)&lon=\(longtitudeInt)&appid=cf1866fe88f904ceafead4524782325c&units=metric"
+        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitudeInt)&lon=\(longtitudeInt)&exclude=daily,minutely,alerts&appid=cf1866fe88f904ceafead4524782325c&units=metric"
         
         
-        AF.request(url).responseDecodable(of: Weather.self) { response in
+        AF.request(url).responseDecodable(of: LoadedWeather.self) { response in
             guard let weather = response.value else {
                 print("error: \(String(describing: response.error))")
                 completion(nil, response.error)

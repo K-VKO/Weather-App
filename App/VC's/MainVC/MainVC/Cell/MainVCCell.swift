@@ -30,11 +30,11 @@ final class MainVCCell: UITableViewCell {
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleText: UILabel!
     
-    func setupTodayWeather(weather: Weather) {
+    func setupCurrentWeather(weather: LoadedWeather) {
         cityName.text = weather.cityName
-        weatherImage.image = UIImage(named: weather.weather[0].icon)
-        weatherDescription.text = weather.weather[0].description.capitalizeFirstLetter()
-        weatherNumber.text = weather.weatherNumbers.temp?.addCelsius()
+        weatherImage.image = UIImage(named: weather.current.weather[0].icon)
+        weatherDescription.text = weather.current.weather[0].description.capitalizeFirstLetter()
+        weatherNumber.text = weather.current.temp?.addCelsius()
     }
     
     func setupArticle(article: Article) {
@@ -49,7 +49,7 @@ final class MainVCCell: UITableViewCell {
     private func bind() {
         viewModel.weather.subscribe {[weak self] event in
             if let weather = event.element {
-                self?.setupTodayWeather(weather: weather)
+                self?.setupCurrentWeather(weather: weather)
             }
         }.disposed(by: disposeBag)
         

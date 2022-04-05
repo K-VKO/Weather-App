@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrentDB" representedClassName="CurrentDB" syncable="YES" codeGenerationType="class">
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="temp" optional="YES" attributeType="String"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDB" inverseName="current" inverseEntity="WeatherDB"/>
+    </entity>
+    <entity name="HourlyDB" representedClassName="HourlyDB" syncable="YES" codeGenerationType="class">
+        <attribute name="dt" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="temp" optional="YES" attributeType="String"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDB" inverseName="hourly" inverseEntity="WeatherDB"/>
+    </entity>
+    <entity name="WeatherDB" representedClassName="WeatherDB" syncable="YES" codeGenerationType="class">
+        <attribute name="cityName" optional="YES" attributeType="String"/>
+        <relationship name="current" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CurrentDB" inverseName="weather" inverseEntity="CurrentDB"/>
+        <relationship name="hourly" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HourlyDB" inverseName="weather" inverseEntity="HourlyDB"/>
+    </entity>
+    <elements>
+        <element name="WeatherDB" positionX="-27" positionY="18" width="128" height="74"/>
+        <element name="CurrentDB" positionX="18" positionY="90" width="128" height="89"/>
+        <element name="HourlyDB" positionX="54" positionY="117" width="128" height="89"/>
+    </elements>
+</model>
